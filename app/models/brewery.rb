@@ -5,8 +5,11 @@ class Brewery < ApplicationRecord
 	has_many :user_brews
 	has_many :users, through: :user_brews
 
+	def self.should_destroy_all
 
-	def self.get_breweries_data(parameter, state)
+	end
+
+	def self.get_breweries_data(search_by, value, page)
 
 		random_picture = ['https://inteng-storage.s3.amazonaws.com/img/iea/yrwQq25awN/sizes/healthy-beer-gut_resize_md.jpg',
 							'https://www.catholicnewsagency.com/images/Beer_Credit_Africa_Studio_Shutterstock_CNA.jpg?w=760',
@@ -20,7 +23,7 @@ class Brewery < ApplicationRecord
 							'http://secureservercdn.net/184.168.47.225/18d.9cd.myftpupload.com/wp-content/gallery/homepagegallery/Outside_3August.JPG'
 							]
 
-		brews = RestClient.get("https://api.openbrewerydb.org/breweries?by_#{parameter}=#{state}&per_page=50")
+		brews = RestClient.get("https://api.openbrewerydb.org/breweries?by_#{search_by}=#{value}&sort=name&per_page=50&page=#{page}")
 
 		brews_array = JSON.parse(brews)
 
@@ -28,7 +31,6 @@ class Brewery < ApplicationRecord
 		brews_array.each do |brew|
 			if brew['brewery_type'] != 'planning'
 			
-
 			    Brewery.create(
 			        name: brew['name'],
 			        street: brew['street'],
