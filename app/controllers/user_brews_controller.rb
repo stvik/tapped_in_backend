@@ -1,2 +1,6 @@
 class UserBrewsController < ApplicationController
+
+
+
+	
 end

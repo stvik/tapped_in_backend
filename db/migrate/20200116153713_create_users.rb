@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :lastname
       t.string :image
       t.string :bio
-      t.string :fav_beer
+      t.string :password
 
       t.timestamps
     end

@@ -11,6 +11,8 @@ class Brewery < ApplicationRecord
 
 	def self.get_breweries_data(search_by, value, page)
 
+		
+
 		random_picture = ['https://inteng-storage.s3.amazonaws.com/img/iea/yrwQq25awN/sizes/healthy-beer-gut_resize_md.jpg',
 							'https://www.catholicnewsagency.com/images/Beer_Credit_Africa_Studio_Shutterstock_CNA.jpg?w=760',
 							'https://assets.newatlas.com/dims4/default/7a5cca9/2147483647/strip/true/crop/2000x1334+0+0/resize/1160x774!/quality/90/?url=https%3A%2F%2Fassets.newatlas.com%2Fb1%2F2e%2Fc3b2baab41a1b377d075b9001120%2Fdepositphotos-164150728-l-2015.jpg',

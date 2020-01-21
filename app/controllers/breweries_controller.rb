@@ -4,7 +4,6 @@ class BreweriesController < ApplicationController
 	
 		Brewery.destroy_all
 
-
 		if params[:state] 
 			Brewery.get_breweries_data('state',params[:state], params[:page])
 		elsif params[:name]
