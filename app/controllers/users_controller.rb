@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+	def login
+	
+		user = User.find_by(username: params[:username])
+
+		if user && user[:password] == params[:password]
+			render json: user
+
+		end
+
+	end
 	def index
 		render json: User.all
 	end
@@ -12,22 +22,12 @@ class UsersController < ApplicationController
 		render json: new_user
 	end
 
-	def login
-
-		user = User.find_by(username: params[:username])
-
-		if user && user[:password] == params[:password]
-			render json: user
-
-		end
-
-	end
 
 	private
 
 	def user_params
 
-		params.require(:user).permit(:firstname, :lastname, :username, :bio, :fav_beer)
+		params.require(:user).permit(:firstname, :lastname, :username, :bio, :password)
 
 	end
 

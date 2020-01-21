@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_153849) do
     t.string "lastname"
     t.string "image"
     t.string "bio"
-    t.string "fav_beer"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
