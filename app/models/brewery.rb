@@ -23,7 +23,7 @@ class Brewery < ApplicationRecord
 							'http://secureservercdn.net/184.168.47.225/18d.9cd.myftpupload.com/wp-content/gallery/homepagegallery/Outside_3August.JPG'
 							]
 
-		brews = RestClient.get("https://api.openbrewerydb.org/breweries?by_#{search_by}=#{value}&sort=name&per_page=50&page=#{page}")
+		brews = RestClient.get("https://api.openbrewerydb.org/breweries?by_#{search_by}=#{value}&sort=name&per_page=25&page=#{page}")
 
 		brews_array = JSON.parse(brews)
 

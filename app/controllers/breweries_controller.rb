@@ -1,9 +1,9 @@
 class BreweriesController < ApplicationController
 
 	def index	
-		if params[:page] == '0'
-			Brewery.destroy_all
-		end
+	
+		Brewery.destroy_all
+
 
 		if params[:state] 
 			Brewery.get_breweries_data('state',params[:state], params[:page])
