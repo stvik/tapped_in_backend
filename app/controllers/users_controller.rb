@@ -1,3 +1,5 @@
+require 'faker'
+
 class UsersController < ApplicationController
 
 	def login
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
 	def create
 		new_user = User.create(user_params)
 
-		new_user.update_attributes(image: "https://cdn.shopify.com/s/files/1/1599/6911/products/Baerlic-hop-pin_800x.jpg?v=1500396557")
+		new_user.update_attributes(image: 'https://source.unsplash.com/random/900%C3%97700/?person')
 
 		render json: new_user
 	end
