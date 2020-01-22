@@ -4,10 +4,13 @@ class BreweriesController < ApplicationController
 	
 		if params[:state] 
 			breweries = Brewery.get_breweries_data('state',params[:state], params[:page])
+
+		elsif params[:city]
+			breweries = Brewery.get_breweries_data('city', params[:city], '1')
 		elsif params[:name]
-			breweries = Brewery.get_breweries_data('name', params[:name], '0')
+			breweries = Brewery.get_breweries_data('name', params[:name], '1')
 		else
-			breweries = Brewery.get_breweries_data('state','District of Columbia', '0')
+			breweries = Brewery.get_breweries_data('state','District of Columbia', '1')
 		end
 
         render json: breweries
