@@ -5,13 +5,9 @@ class Brewery < ApplicationRecord
 	has_many :user_brews
 	has_many :users, through: :user_brews
 
-	def self.should_destroy_all
-
-	end
+	
 
 	def self.get_breweries_data(search_by, value, page)
-
-		
 
 		random_picture = ['https://inteng-storage.s3.amazonaws.com/img/iea/yrwQq25awN/sizes/healthy-beer-gut_resize_md.jpg',
 							'https://www.catholicnewsagency.com/images/Beer_Credit_Africa_Studio_Shutterstock_CNA.jpg?w=760',
@@ -28,12 +24,12 @@ class Brewery < ApplicationRecord
 		brews = RestClient.get("https://api.openbrewerydb.org/breweries?by_#{search_by}=#{value}&sort=name&per_page=25&page=#{page}")
 
 		brews_array = JSON.parse(brews)
-
+		breweries = []
 
 		brews_array.each do |brew|
 			if brew['brewery_type'] != 'planning'
 			
-			    Brewery.create(
+			   breweries <<  Brewery.new(
 			        name: brew['name'],
 			        street: brew['street'],
 			        city: brew['city'],
@@ -46,8 +42,11 @@ class Brewery < ApplicationRecord
 			        description: Faker::Lorem.paragraph(sentence_count: 5),
 			        image: random_picture.sample
 			    )
+
 			end
 		end
+
+		return breweries
 	end
 
 
