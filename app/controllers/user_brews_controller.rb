@@ -1,7 +1,13 @@
 class UserBrewsController < ApplicationController
 
 def index
-	render json: UserBrew.all.to_json(:include => {
+
+	
+	brews = UserBrew.all.find_all{|u| u.user_id == params[:user_id].to_i}
+
+		
+
+	render json: brews.to_json(:include => {
     :brewery => {:except => [:created_at, :updated_at]},
     :user => {:except => [:created_at, :updated_at]}
   }, :except => [:created_at, :updated_at])
