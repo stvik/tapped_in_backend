@@ -1,24 +1,14 @@
-# README
+# TappedIn
+TappedIn is a rails and react application. Search for breweries by name or location, or explore beweries by state. Check out breweries in your area on a map, incorporated using Google Maps API.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
+Dependencies Before starting the rails server, run bundle install to ensure all dependencies are installed and up to date.
 
-Things you may want to cover:
+rails s Open http://localhost:3000 to view it in the browser.
 
-* Ruby version
+## Credits
+Trekker was created by Sara Tarnvik ©2020 All rights reserved
 
-* System dependencies
+License MIT License - see LICENSE.md for full text
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Notes Ruby version '2.6.1'
